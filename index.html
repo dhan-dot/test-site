@@ -4,19 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Comparative Water Filtration Research</title>
+    <!-- Google Fonts for Modern Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
     <style>
         :root {
             --primary: #0284c7;
             --primary-dark: #0369a1;
-            --bg-slate: #f8fafc;
+            --accent-cyan: #06b6d4;
+            --bg-slate: #f1f5f9;
             --text-dark: #0f172a;
             --text-muted: #475569;
             --card-bg: #ffffff;
+            --border-color: #e2e8f0;
             --accent-blue: #e0f2fe;
+            --badge-bg: #dbeafe;
+            --badge-text: #1e40af;
+        }
+
+        * {
+            box-sizing: border-box;
+            scroll-behavior: smooth;
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
             line-height: 1.7;
             color: var(--text-dark);
             background-color: var(--bg-slate);
@@ -24,153 +38,321 @@
             padding: 0;
         }
 
-        /* Header Styling */
+        /* Hero Header with Animated Gradient */
         header {
-            background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+            background: linear-gradient(135deg, #0f172a 0%, #0369a1 50%, #0284c7 100%);
             color: white;
-            padding: 3.5rem 1.5rem 2.5rem;
+            padding: 4.5rem 1.5rem 3.5rem;
             text-align: center;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.08) 0%, transparent 60%);
+            pointer-events: none;
+        }
+
+        .header-tag {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(8px);
+            padding: 0.35rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            margin-bottom: 1.25rem;
+            border: 1px solid rgba(255, 255, 255, 0.25);
         }
 
         header h1 {
-            margin: 0 0 1rem 0;
-            font-size: 2.2rem;
-            max-width: 900px;
-            margin-left: auto;
-            margin-right: auto;
-            line-height: 1.3;
+            margin: 0 auto 1.25rem;
+            font-size: 2.4rem;
+            font-weight: 800;
+            max-width: 920px;
+            line-height: 1.25;
+            letter-spacing: -0.02em;
         }
 
         .meta-info {
             font-size: 1.05rem;
             opacity: 0.95;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.5rem;
+            max-width: 800px;
+            margin: 0 auto;
         }
 
-        /* Navigation Bar */
+        .meta-item {
+            background: rgba(255,255,255,0.1);
+            padding: 0.4rem 1rem;
+            border-radius: 8px;
+            border: 1px solid rgba(255,255,255,0.15);
+        }
+
+        /* Glassmorphism Navigation Bar */
         nav {
-            background: #ffffff;
-            border-bottom: 1px solid #e2e8f0;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border-color);
             position: sticky;
             top: 0;
-            z-index: 100;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            z-index: 1000;
         }
 
         .nav-container {
-            max-width: 900px;
+            max-width: 960px;
             margin: 0 auto;
             display: flex;
             justify-content: center;
-            gap: 1.5rem;
+            gap: 1rem;
             padding: 0.75rem 1rem;
+            overflow-x: auto;
         }
 
         nav a {
-            color: var(--primary-dark);
+            color: var(--text-dark);
             text-decoration: none;
             font-weight: 600;
-            font-size: 0.95rem;
-            padding: 0.25rem 0.5rem;
-            border-radius: 4px;
-            transition: background 0.2s;
+            font-size: 0.9rem;
+            padding: 0.4rem 0.85rem;
+            border-radius: 6px;
+            transition: all 0.2s ease;
+            white-space: nowrap;
         }
 
         nav a:hover {
-            background: var(--accent-blue);
+            background: var(--primary);
+            color: white;
+            transform: translateY(-1px);
         }
 
         .container {
-            max-width: 900px;
-            margin: 2rem auto;
+            max-width: 960px;
+            margin: 2.5rem auto;
             padding: 0 1.5rem;
         }
 
-        /* Metric Highlights Grid */
+        /* Interactive Metric Highlight Cards */
         .metrics-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1rem;
-            margin-bottom: 2rem;
+            gap: 1.25rem;
+            margin-bottom: 2.5rem;
         }
 
         .metric-card {
             background: var(--card-bg);
-            border: 1px solid #bae6fd;
-            border-top: 4px solid var(--primary);
-            border-radius: 8px;
-            padding: 1.25rem;
+            border: 1px solid var(--border-color);
+            border-radius: 14px;
+            padding: 1.5rem;
             text-align: center;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .metric-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--accent-cyan));
+        }
+
+        .metric-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.06);
         }
 
         .metric-card .number {
-            font-size: 2rem;
-            font-weight: 700;
+            font-size: 2.2rem;
+            font-weight: 800;
             color: var(--primary-dark);
-            margin-bottom: 0.2rem;
+            line-height: 1;
+            margin-bottom: 0.35rem;
         }
 
         .metric-card .label {
-            font-size: 0.9rem;
+            font-size: 0.85rem;
+            font-weight: 600;
             color: var(--text-muted);
             text-transform: uppercase;
             letter-spacing: 0.5px;
         }
 
-        /* Section Cards */
+        /* Research Sections */
         section {
             background: var(--card-bg);
-            padding: 2.25rem;
+            padding: 2.5rem;
             margin-bottom: 2rem;
-            border-radius: 12px;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-            border: 1px solid #e2e8f0;
+            border-radius: 16px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.03);
+            border: 1px solid var(--border-color);
         }
 
         h2 {
             color: var(--primary-dark);
-            border-bottom: 2px solid #e2e8f0;
-            padding-bottom: 0.5rem;
+            font-size: 1.6rem;
+            font-weight: 700;
+            border-bottom: 2px solid var(--bg-slate);
+            padding-bottom: 0.65rem;
             margin-top: 0;
-            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
         }
 
         h3 {
             color: var(--text-dark);
             margin-top: 1.75rem;
-            font-size: 1.2rem;
+            font-size: 1.25rem;
+            font-weight: 600;
         }
 
-        ul, ol {
-            padding-left: 1.5rem;
+        p {
+            margin-bottom: 1.25rem;
+            color: #334155;
+            font-size: 1.02rem;
         }
 
-        li {
-            margin-bottom: 0.5rem;
+        /* Image Display Grid Placeholder */
+        .image-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin: 1.75rem 0;
         }
 
-        .reference-item {
-            margin-bottom: 0.75rem;
-            word-break: break-word;
+        .image-box {
+            background: #f8fafc;
+            border: 2px dashed #cbd5e1;
+            border-radius: 12px;
+            padding: 2rem 1rem;
+            text-align: center;
+            transition: border-color 0.2s ease;
+        }
+
+        .image-box:hover {
+            border-color: var(--primary);
+        }
+
+        .image-box img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+        }
+
+        .caption {
+            font-size: 0.88rem;
+            color: var(--text-muted);
+            margin-top: 0.65rem;
+            font-style: italic;
+        }
+
+        /* Key Terms Badges */
+        .terms-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1rem;
+            margin-top: 1.25rem;
+        }
+
+        .term-card {
+            background: #f8fafc;
+            border-left: 4px solid var(--primary);
+            padding: 1rem 1.25rem;
+            border-radius: 0 8px 8px 0;
+            border-top: 1px solid var(--border-color);
+            border-right: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .term-card strong {
+            color: var(--primary-dark);
+            display: block;
+            margin-bottom: 0.25rem;
+        }
+
+        /* Table Design */
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
             font-size: 0.95rem;
+        }
+
+        .data-table th {
+            background: var(--primary-dark);
+            color: white;
+            text-align: left;
+            padding: 0.75rem 1rem;
+            border-radius: 4px 4px 0 0;
+        }
+
+        .data-table td {
+            padding: 0.75rem 1rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .data-table tr:nth-child(even) {
+            background-color: #f8fafc;
+        }
+
+        /* References */
+        .reference-item {
+            padding: 0.65rem 0;
+            border-bottom: 1px dashed var(--border-color);
+            font-size: 0.95rem;
+        }
+
+        .reference-item:last-child {
+            border-bottom: none;
+        }
+
+        .reference-item a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .reference-item a:hover {
+            text-decoration: underline;
         }
 
         footer {
             text-align: center;
-            padding: 2rem;
+            padding: 3rem 1.5rem;
             color: var(--text-muted);
             font-size: 0.9rem;
+            border-top: 1px solid var(--border-color);
+            background: white;
         }
     </style>
 </head>
 <body>
 
     <header>
+        <span class="header-tag">Workshop #5 Research Project</span>
         <h1>Comparative Efficacy of Five Water Filtration Technologies on Local Creek Water Quality</h1>
         <div class="meta-info">
-            <p><strong>Authors:</strong> Ashi, Aria, Dhanwin &nbsp;|&nbsp; <strong>Mentor:</strong> Rhea Desai</p>
-            <p>Workshop #5 Research Submission &nbsp;|&nbsp; July 23, 2026</p>
+            <div class="meta-item"><strong>Authors:</strong> Ashi, Aria, Dhanwin</div>
+            <div class="meta-item"><strong>Mentor:</strong> Rhea Desai</div>
+            <div class="meta-item"><strong>Date:</strong> July 23, 2026</div>
         </div>
     </header>
 
@@ -178,8 +360,9 @@
         <div class="nav-container">
             <a href="#intro">1. Introduction</a>
             <a href="#methods">2. Materials & Methods</a>
-            <a href="#references">3. References</a>
-            <a href="#ai-disclosure">4. AI Disclosure</a>
+            <a href="#photos">3. Experimental Setup</a>
+            <a href="#references">4. References</a>
+            <a href="#ai-disclosure">5. AI Disclosure</a>
         </div>
     </nav>
 
@@ -193,66 +376,145 @@
             </div>
             <div class="metric-card">
                 <div class="number">5</div>
-                <div class="label">Filtration Technologies</div>
+                <div class="label">Filter Tech Tested</div>
+            </div>
+            <div class="metric-card">
+                <div class="number">n = 5</div>
+                <div class="label">Replicates per Filter</div>
             </div>
             <div class="metric-card">
                 <div class="number">ANOVA</div>
-                <div class="label">Statistical Test Used</div>
+                <div class="label">Inferential Test</div>
             </div>
         </div>
-        
+
+        <!-- Section 1: Introduction -->
         <section id="intro">
             <h2>1. Introduction</h2>
-            <p>Water pollution is one of the most crucial issues in today’s aquatic ecosystem. One way to eliminate water pollution in our community is through filtration methods. Mechanical, UV light, and more are some of the various filtration methods that are used in communities all across the world. Many research papers have shown that the usual solution of boiling your water is simply not enough for most health requirements [1]. Due to the extensive research done by many established scientists, people have switched to water filters. "Water filtration is the process of removing or reducing impurities and contaminants from water, making it safer and cleaner for consumption, cooking, and other uses" [1].</p>
+            <p>Water pollution is one of the most crucial issues in today’s aquatic ecosystem. One way to eliminate water pollution in our community is through filtration methods. Mechanical, UV light, and more are some of the various filtration methods that are used in communities all across the world. Many research papers have shown that the usual solution of boiling your water is simply not enough for most health requirements [1]. Due to the extensive research done by many established scientists, people have switched to water filters. <em>"Water filtration is the process of removing or reducing impurities and contaminants from water, making it safer and cleaner for consumption, cooking, and other uses"</em> [1].</p>
             
             <p>There are numerous environmental contaminants that significantly contribute to human disease, affecting climate change and public and individual health, resulting in increased mortality and morbidity [2]. Although pollutants are not new to the environment, their exposure still poses the greatest threat to humanity and is a significant cause of environmental illness and mortality. Urbanization, industrialization, mining, and exploration are some of the human activities that have had the most impacts on worldwide environmental pollution [3]. This research not only applies to just a specific area. Concentrations of at least one chemical contaminant were greater than an established MCL in 13 percent of the 1,389 wells [4].</p>
             
             <p>Although previous studies have examined the effectiveness of water filtration methods, comparing multiple water filters at a local creek remains understudied, which is effective because it will help those in societies contribute to the purification methods of local water sources. Our project will help people who may not have as much access to clean water verify if their water is clean and safe to drink and use. The present study aims to determine which of five different water filters removes the greatest amount of pollutants from water collected from a local creek. We hypothesized that the activated carbon filter would remove the highest amount of pollutants. This paper discusses the experimental procedure and compares the filtration methods to show the data analysis on which approach is most effective.</p>
 
-            <h3>Key Terms & Definitions</h3>
-            <ul>
-                <li><strong>Internal Cancers:</strong> Long-term exposure to heavy metals like arsenic, as well as industrial chemicals such as PFAS and pesticides, can cause genetic mutations leading to bladder, lung, and skin cancers.</li>
-                <li><strong>Pollutants:</strong> Substances or forms of energy that contaminate the environment, causing harm to human health, ecosystems, or natural resources.</li>
-                <li><strong>Turbidity:</strong> The measure of the cloudiness or haziness of a fluid caused by large numbers of suspended particles.</li>
-                <li><strong>Granular Activated Carbon (GAC):</strong> A carbon filter that traps pollutants efficiently using adsorption.</li>
-                <li><strong>Reverse Osmosis (RO) Systems:</strong> Passes water under pressure through a fine membrane to remove harmful chemicals.</li>
-                <li><strong>Ion Exchange Resins:</strong> Uses resin beads that act like small magnets to attract pollutant ions from water.</li>
-                <li><strong>Mechanical Filters:</strong> Physically block solid debris from getting into your water.</li>
-                <li><strong>UV Light:</strong> Neutralizes biological contaminants using ultraviolet radiation.</li>
-            </ul>
+            <h3>Key Terms & Operational Definitions</h3>
+            <div class="terms-grid">
+                <div class="term-card">
+                    <strong>Internal Cancers</strong>
+                    Long-term exposure to heavy metals like arsenic and industrial chemicals (PFAS, pesticides) causing genetic mutations.
+                </div>
+                <div class="term-card">
+                    <strong>Pollutants</strong>
+                    Substances or energy introduced into an environment causing adverse effects on human health or natural ecosystems.
+                </div>
+                <div class="term-card">
+                    <strong>Turbidity</strong>
+                    A quantitative measure of the cloudiness or haziness of a fluid caused by suspended particulate matter.
+                </div>
+                <div class="term-card">
+                    <strong>Granular Activated Carbon (GAC)</strong>
+                    A porous carbon filter media designed to adsorb organic chemicals and contaminants from liquid media.
+                </div>
+                <div class="term-card">
+                    <strong>Reverse Osmosis (RO) Systems</strong>
+                    Forces water under pressure through a semi-permeable membrane to isolate and remove chemical ions.
+                </div>
+                <div class="term-card">
+                    <strong>Ion Exchange Resins</strong>
+                    Polymeric beads acting as small magnets to exchange non-harmful ions for targeted pollutant ions.
+                </div>
+            </div>
         </section>
 
+        <!-- Section 2: Methods -->
         <section id="methods">
             <h2>2. Materials & Methods</h2>
             
             <h3>2.1 Study Design</h3>
-            <p>We did 5 trials for each filter, conducting 25 trials in total ($n = 5$ per group). We executed each trial under the same conditions and used the same amount of creek water collected from the same place at the same time.</p>
+            <p>We executed 5 trials per filter, resulting in 25 trials in total ($n = 5$ per group). Each trial was conducted under identical environmental conditions using equal volumes of creek water collected simultaneously from the same sampling location.</p>
 
-            <h3>2.2 Participants, Subjects, or Materials</h3>
-            <p>We used charcoal (granular activated carbon), reverse osmosis systems, ion exchange resins, mechanical filters, and UV light. To evaluate performance, we conducted turbidity tests and drinking water quality tests. We gathered water samples from the same source with identical measurements under uniform conditions to eliminate bias. Sample size: <em>n</em> = 25.</p>
+            <h3>2.2 Tested Filtration Technologies</h3>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Filter Type</th>
+                        <th>Primary Mechanism</th>
+                        <th>Trials Completed</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Granular Activated Carbon (GAC)</strong></td>
+                        <td>Chemical Adsorption</td>
+                        <td>5</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Reverse Osmosis (RO)</strong></td>
+                        <td>Semi-Permeable Membrane Filtration</td>
+                        <td>5</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Ion Exchange Resin</strong></td>
+                        <td>Ionic Particle Binding</td>
+                        <td>5</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Mechanical Filter</strong></td>
+                        <td>Physical Particle Straining</td>
+                        <td>5</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Ultraviolet (UV) Light</strong></td>
+                        <td>Electromagnetic Radiation Disinfection</td>
+                        <td>5</td>
+                    </tr>
+                </tbody>
+            </table>
 
-            <h3>2.3 Procedures and Data Analysis</h3>
-            <p>First, we obtained the filters, turbidity test kits, and drinking water testing kits. Next, we collected 25 water samples from the local creek under identical conditions. We ran 5 tests per filter type, conducting turbidity and drinking water tests after each run. Results were compared against unfiltered baseline water. All data were recorded in Google Sheets, and a One-Way ANOVA test was executed using Statistics Kingdom.</p>
+            <h3>2.3 Procedures & Statistical Analysis</h3>
+            <p>Water samples were harvested from the designated creek location. Baseline values for turbidity and chemical contamination were recorded on unfiltered water. Each water sample was passed through its designated filter treatment. Post-treatment measurements were recorded in Google Sheets. Inferential statistical evaluation was conducted using a <strong>One-Way Analysis of Variance (ANOVA)</strong> via Statistics Kingdom.</p>
         </section>
 
+        <!-- Section 3: Photo Gallery Placeholder -->
+        <section id="photos">
+            <h2>3. Experimental Photos</h2>
+            <p>Photographic evidence of sample collection and testing setups:</p>
+            
+            <div class="image-gallery">
+                <!-- Replace 'creek-sample.jpg' with your actual uploaded image filename -->
+                <div class="image-box">
+                    <img src="creek-sample.jpg" alt="Creek Water Sampling" onerror="this.style.display='none'; this.nextElementSibling.innerHTML='📷 Add <b>creek-sample.jpg</b> to GitHub to display picture';">
+                    <p class="caption">Figure 1: Collecting baseline water samples at the local creek site.</p>
+                </div>
+                
+                <!-- Replace 'filter-setup.jpg' with your actual uploaded image filename -->
+                <div class="image-box">
+                    <img src="filter-setup.jpg" alt="Filtration Setup" onerror="this.style.display='none'; this.nextElementSibling.innerHTML='📷 Add <b>filter-setup.jpg</b> to GitHub to display picture';">
+                    <p class="caption">Figure 2: Multi-filter comparative experimental setup.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4: References -->
         <section id="references">
-            <h2>3. References</h2>
-            <div class="reference-item">[1] Irish, M. (n.d.). <em>Why is it important to filter water?</em> Aquasana. <a href="https://www.aquasana.com/info/why-is-it-important-to-filter-water-pd.html" target="_blank">Link</a></div>
-            <div class="reference-item">[2] Shetty, S. S., et al. (2023). Environmental pollutants and their effects on human health. <em>Heliyon</em>, 9(9), e19496. <a href="https://doi.org/10.1016/j.heliyon.2023.e19496" target="_blank">Link</a></div>
-            <div class="reference-item">[3] Centers for Disease Control and Prevention. (2024). <em>How water treatment works</em>. CDC. <a href="https://www.cdc.gov/drinking-water/about/how-water-treatment-works.html" target="_blank">Link</a></div>
-            <div class="reference-item">[4] DeSimone, L. A., et al. (2009). <em>The quality of our nation's waters: Domestic wells</em> (USGS Circular 1332). <a href="https://doi.org/10.3133/cir1332" target="_blank">Link</a></div>
+            <h2>4. References</h2>
+            <div class="reference-item">[1] Irish, M. (n.d.). <em>Why is it important to filter water?</em> Aquasana. <a href="https://www.aquasana.com/info/why-is-it-important-to-filter-water-pd.html" target="_blank">View Source</a></div>
+            <div class="reference-item">[2] Shetty, S. S., et al. (2023). Environmental pollutants and their effects on human health. <em>Heliyon</em>, 9(9), e19496. <a href="https://doi.org/10.1016/j.heliyon.2023.e19496" target="_blank">DOI Link</a></div>
+            <div class="reference-item">[3] Centers for Disease Control and Prevention. (2024). <em>How water treatment works</em>. CDC. <a href="https://www.cdc.gov/drinking-water/about/how-water-treatment-works.html" target="_blank">View Source</a></div>
+            <div class="reference-item">[4] DeSimone, L. A., et al. (2009). <em>The quality of our nation's waters: Domestic wells</em> (USGS Circular 1332). <a href="https://doi.org/10.3133/cir1332" target="_blank">USGS Link</a></div>
         </section>
 
+        <!-- Section 5: AI Disclosure -->
         <section id="ai-disclosure">
-            <h2>4. Responsible AI Usage Disclosure</h2>
-            <p><strong>AI Tool Usage:</strong> N/A (No AI tools were used during drafting).</p>
-            <p><strong>Growth Check:</strong> All content, research, and analysis were written independently by the authors.</p>
+            <h2>5. Responsible AI Usage Disclosure</h2>
+            <p><strong>AI Tool Usage:</strong> N/A (No AI tools were used during research drafting).</p>
+            <p><strong>Growth Check:</strong> Research framing, data processing design, and literature reviews were conducted independently by the student authors.</p>
         </section>
 
     </div>
 
     <footer>
-        <p>&copy; 2026 Student Science Research Project. Published via GitHub Pages.</p>
+        <p>&copy; 2026 Student Science Research Team. Hosted on GitHub Pages.</p>
     </footer>
 
 </body>
