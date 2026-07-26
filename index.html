@@ -1,56 +1,125 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Science Project Test</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #e0f2fe;
-      padding: 20px;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comparative Water Filtration Research</title>
+    <style>
+        :root {
+            --primary: #0284c7;
+            --primary-dark: #0369a1;
+            --bg-slate: #f8fafc;
+            --text-dark: #0f172a;
+            --text-muted: #475569;
+            --card-bg: #ffffff;
+        }
 
-    .card {
-      background: white;
-      max-width: 500px;
-      margin: 0 auto;
-      padding: 25px;
-      border-radius: 12px;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.7;
+            color: var(--text-dark);
+            background-color: var(--bg-slate);
+            margin: 0;
+            padding: 0;
+        }
 
-    h1 {
-      color: #0369a1;
-      text-align: center;
-    }
+        header {
+            background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+            color: white;
+            padding: 3rem 1.5rem;
+            text-align: center;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
 
-    .author {
-      text-align: center;
-      color: #64748b;
-      font-style: italic;
-    }
+        header h1 {
+            margin: 0 0 1rem 0;
+            font-size: 2.2rem;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
 
-    h2 {
-      color: #0284c7;
-      border-bottom: 2px solid #e2e8f0;
-    }
-  </style>
+        .meta-info {
+            font-size: 1.05rem;
+            opacity: 0.95;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 2rem auto;
+            padding: 0 1.5rem;
+        }
+
+        section {
+            background: var(--card-bg);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            border: 1px solid #e2e8f0;
+        }
+
+        h2 {
+            color: var(--primary-dark);
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 0.5rem;
+            margin-top: 0;
+        }
+
+        h3 {
+            color: var(--text-dark);
+            margin-top: 1.5rem;
+        }
+
+        ul, ol {
+            padding-left: 1.5rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        .citation-list {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            word-break: break-all;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+    </style>
 </head>
 <body>
 
-  <div class="card">
-    <h1>My Science Project Test</h1>
-    <p class="author">By: Parent Tester</p>
-    
-    <h2>1. What I am testing</h2>
-    <p>Building a web page from scratch to teach my kid!</p>
-    
-    <h2>2. Key Steps</h2>
-    <ul>
-      <li>Write HTML content</li>
-      <li>Add CSS styling</li>
-      <li>Publish to GitHub Pages</li>
-    </ul>
-  </div>
+    <header>
+        <h1>Comparative Efficacy of Five Water Filtration Technologies on Local Creek Water Quality</h1>
+        <div class="meta-info">
+            <p><strong>Authors:</strong> Ashi, Aria, Dhanwin &nbsp;|&nbsp; <strong>Mentor:</strong> Rhea Desai</p>
+            <p>Workshop #5 Research Submission &nbsp;|&nbsp; July 23, 2026</p>
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- Content sections go here -->
+        <section>
+            <h2>1. Introduction</h2>
+            <p>Water pollution presents one of the most critical threats to modern aquatic ecosystems and public health worldwide...</p>
+        </section>
+
+        <section>
+            <h2>2. Materials & Methods</h2>
+            <h3>2.1 Study Design</h3>
+            <p>A controlled, comparative experimental design was implemented across 25 total trials...</p>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Student Science Research Project. Published via GitHub Pages.</p>
+    </footer>
 
 </body>
 </html>
