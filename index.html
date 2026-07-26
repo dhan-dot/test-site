@@ -12,6 +12,7 @@
             --text-dark: #0f172a;
             --text-muted: #475569;
             --card-bg: #ffffff;
+            --accent-blue: #e0f2fe;
         }
 
         body {
@@ -23,25 +24,60 @@
             padding: 0;
         }
 
+        /* Header Styling */
         header {
             background: linear-gradient(135deg, var(--primary-dark), var(--primary));
             color: white;
-            padding: 3rem 1.5rem;
+            padding: 3.5rem 1.5rem 2.5rem;
             text-align: center;
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
         }
 
         header h1 {
             margin: 0 0 1rem 0;
-            font-size: 2rem;
+            font-size: 2.2rem;
             max-width: 900px;
             margin-left: auto;
             margin-right: auto;
+            line-height: 1.3;
         }
 
         .meta-info {
             font-size: 1.05rem;
             opacity: 0.95;
+        }
+
+        /* Navigation Bar */
+        nav {
+            background: #ffffff;
+            border-bottom: 1px solid #e2e8f0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .nav-container {
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            padding: 0.75rem 1rem;
+        }
+
+        nav a {
+            color: var(--primary-dark);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            transition: background 0.2s;
+        }
+
+        nav a:hover {
+            background: var(--accent-blue);
         }
 
         .container {
@@ -50,9 +86,42 @@
             padding: 0 1.5rem;
         }
 
+        /* Metric Highlights Grid */
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .metric-card {
+            background: var(--card-bg);
+            border: 1px solid #bae6fd;
+            border-top: 4px solid var(--primary);
+            border-radius: 8px;
+            padding: 1.25rem;
+            text-align: center;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        .metric-card .number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+            margin-bottom: 0.2rem;
+        }
+
+        .metric-card .label {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Section Cards */
         section {
             background: var(--card-bg);
-            padding: 2rem;
+            padding: 2.25rem;
             margin-bottom: 2rem;
             border-radius: 12px;
             box-shadow: 0 1px 3px rgba(0,0,0,0.1);
@@ -64,11 +133,13 @@
             border-bottom: 2px solid #e2e8f0;
             padding-bottom: 0.5rem;
             margin-top: 0;
+            font-size: 1.5rem;
         }
 
         h3 {
             color: var(--text-dark);
-            margin-top: 1.5rem;
+            margin-top: 1.75rem;
+            font-size: 1.2rem;
         }
 
         ul, ol {
@@ -82,6 +153,7 @@
         .reference-item {
             margin-bottom: 0.75rem;
             word-break: break-word;
+            font-size: 0.95rem;
         }
 
         footer {
@@ -102,9 +174,34 @@
         </div>
     </header>
 
+    <nav>
+        <div class="nav-container">
+            <a href="#intro">1. Introduction</a>
+            <a href="#methods">2. Materials & Methods</a>
+            <a href="#references">3. References</a>
+            <a href="#ai-disclosure">4. AI Disclosure</a>
+        </div>
+    </nav>
+
     <div class="container">
+
+        <!-- Stat Highlight Cards -->
+        <div class="metrics-grid">
+            <div class="metric-card">
+                <div class="number">25</div>
+                <div class="label">Total Experimental Trials</div>
+            </div>
+            <div class="metric-card">
+                <div class="number">5</div>
+                <div class="label">Filtration Technologies</div>
+            </div>
+            <div class="metric-card">
+                <div class="number">ANOVA</div>
+                <div class="label">Statistical Test Used</div>
+            </div>
+        </div>
         
-        <section>
+        <section id="intro">
             <h2>1. Introduction</h2>
             <p>Water pollution is one of the most crucial issues in today’s aquatic ecosystem. One way to eliminate water pollution in our community is through filtration methods. Mechanical, UV light, and more are some of the various filtration methods that are used in communities all across the world. Many research papers have shown that the usual solution of boiling your water is simply not enough for most health requirements [1]. Due to the extensive research done by many established scientists, people have switched to water filters. "Water filtration is the process of removing or reducing impurities and contaminants from water, making it safer and cleaner for consumption, cooking, and other uses" [1].</p>
             
@@ -125,11 +222,11 @@
             </ul>
         </section>
 
-        <section>
+        <section id="methods">
             <h2>2. Materials & Methods</h2>
             
             <h3>2.1 Study Design</h3>
-            <p>We did 5 trials for each filter, conducting 25 trials in total. We executed each trial under the same conditions and used the same amount of creek water collected from the same place at the same time.</p>
+            <p>We did 5 trials for each filter, conducting 25 trials in total ($n = 5$ per group). We executed each trial under the same conditions and used the same amount of creek water collected from the same place at the same time.</p>
 
             <h3>2.2 Participants, Subjects, or Materials</h3>
             <p>We used charcoal (granular activated carbon), reverse osmosis systems, ion exchange resins, mechanical filters, and UV light. To evaluate performance, we conducted turbidity tests and drinking water quality tests. We gathered water samples from the same source with identical measurements under uniform conditions to eliminate bias. Sample size: <em>n</em> = 25.</p>
@@ -138,7 +235,7 @@
             <p>First, we obtained the filters, turbidity test kits, and drinking water testing kits. Next, we collected 25 water samples from the local creek under identical conditions. We ran 5 tests per filter type, conducting turbidity and drinking water tests after each run. Results were compared against unfiltered baseline water. All data were recorded in Google Sheets, and a One-Way ANOVA test was executed using Statistics Kingdom.</p>
         </section>
 
-        <section>
+        <section id="references">
             <h2>3. References</h2>
             <div class="reference-item">[1] Irish, M. (n.d.). <em>Why is it important to filter water?</em> Aquasana. <a href="https://www.aquasana.com/info/why-is-it-important-to-filter-water-pd.html" target="_blank">Link</a></div>
             <div class="reference-item">[2] Shetty, S. S., et al. (2023). Environmental pollutants and their effects on human health. <em>Heliyon</em>, 9(9), e19496. <a href="https://doi.org/10.1016/j.heliyon.2023.e19496" target="_blank">Link</a></div>
@@ -146,7 +243,7 @@
             <div class="reference-item">[4] DeSimone, L. A., et al. (2009). <em>The quality of our nation's waters: Domestic wells</em> (USGS Circular 1332). <a href="https://doi.org/10.3133/cir1332" target="_blank">Link</a></div>
         </section>
 
-        <section>
+        <section id="ai-disclosure">
             <h2>4. Responsible AI Usage Disclosure</h2>
             <p><strong>AI Tool Usage:</strong> N/A (No AI tools were used during drafting).</p>
             <p><strong>Growth Check:</strong> All content, research, and analysis were written independently by the authors.</p>
