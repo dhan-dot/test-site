@@ -20,8 +20,6 @@
             --card-bg: #ffffff;
             --border-color: #e2e8f0;
             --accent-blue: #e0f2fe;
-            --badge-bg: #dbeafe;
-            --badge-text: #1e40af;
         }
 
         * {
@@ -38,7 +36,7 @@
             padding: 0;
         }
 
-        /* Hero Header with Animated Gradient */
+        /* Hero Header */
         header {
             background: linear-gradient(135deg, #0f172a 0%, #0369a1 50%, #0284c7 100%);
             color: white;
@@ -46,17 +44,6 @@
             text-align: center;
             position: relative;
             overflow: hidden;
-        }
-
-        header::before {
-            content: "";
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(255,255,255,0.08) 0%, transparent 60%);
-            pointer-events: none;
         }
 
         .header-tag {
@@ -100,7 +87,7 @@
             border: 1px solid rgba(255,255,255,0.15);
         }
 
-        /* Glassmorphism Navigation Bar */
+        /* Navigation Bar */
         nav {
             background: rgba(255, 255, 255, 0.85);
             backdrop-filter: blur(12px);
@@ -143,7 +130,7 @@
             padding: 0 1.5rem;
         }
 
-        /* Interactive Metric Highlight Cards */
+        /* Metric Highlight Cards */
         .metrics-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -158,7 +145,6 @@
             padding: 1.5rem;
             text-align: center;
             box-shadow: 0 4px 12px rgba(0,0,0,0.03);
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
             position: relative;
             overflow: hidden;
         }
@@ -171,11 +157,6 @@
             width: 100%;
             height: 4px;
             background: linear-gradient(90deg, var(--primary), var(--accent-cyan));
-        }
-
-        .metric-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 12px 24px rgba(0,0,0,0.06);
         }
 
         .metric-card .number {
@@ -194,7 +175,7 @@
             letter-spacing: 0.5px;
         }
 
-        /* Research Sections */
+        /* Section Styling */
         section {
             background: var(--card-bg);
             padding: 2.5rem;
@@ -211,9 +192,6 @@
             border-bottom: 2px solid var(--bg-slate);
             padding-bottom: 0.65rem;
             margin-top: 0;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
         }
 
         h3 {
@@ -229,42 +207,7 @@
             font-size: 1.02rem;
         }
 
-        /* Image Display Grid Placeholder */
-        .image-gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
-            margin: 1.75rem 0;
-        }
-
-        .image-box {
-            background: #f8fafc;
-            border: 2px dashed #cbd5e1;
-            border-radius: 12px;
-            padding: 2rem 1rem;
-            text-align: center;
-            transition: border-color 0.2s ease;
-        }
-
-        .image-box:hover {
-            border-color: var(--primary);
-        }
-
-        .image-box img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
-        }
-
-        .caption {
-            font-size: 0.88rem;
-            color: var(--text-muted);
-            margin-top: 0.65rem;
-            font-style: italic;
-        }
-
-        /* Key Terms Badges */
+        /* Key Terms Cards */
         .terms-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -277,9 +220,8 @@
             border-left: 4px solid var(--primary);
             padding: 1rem 1.25rem;
             border-radius: 0 8px 8px 0;
-            border-top: 1px solid var(--border-color);
-            border-right: 1px solid var(--border-color);
-            border-bottom: 1px solid var(--border-color);
+            border: 1px solid var(--border-color);
+            border-left-width: 4px;
         }
 
         .term-card strong {
@@ -288,7 +230,7 @@
             margin-bottom: 0.25rem;
         }
 
-        /* Table Design */
+        /* Data Table */
         .data-table {
             width: 100%;
             border-collapse: collapse;
@@ -301,7 +243,6 @@
             color: white;
             text-align: left;
             padding: 0.75rem 1rem;
-            border-radius: 4px 4px 0 0;
         }
 
         .data-table td {
@@ -313,6 +254,79 @@
             background-color: #f8fafc;
         }
 
+        /* Carousel Slideshow Styling */
+        .carousel-container {
+            position: relative;
+            max-width: 700px;
+            margin: 1.5rem auto;
+            background: #f8fafc;
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            min-height: 250px;
+        }
+
+        .carousel-slide {
+            display: none;
+            text-align: center;
+            padding: 1.5rem;
+        }
+
+        .carousel-slide.active {
+            display: block;
+        }
+
+        .carousel-slide img {
+            max-width: 100%;
+            max-height: 400px;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .placeholder-box {
+            background: #e2e8f0;
+            border: 2px dashed #94a3b8;
+            border-radius: 8px;
+            padding: 3.5rem 1rem;
+            font-size: 1rem;
+            color: var(--text-muted);
+        }
+
+        .slide-number {
+            position: absolute;
+            top: 12px;
+            left: 16px;
+            background: rgba(15, 23, 42, 0.75);
+            color: white;
+            padding: 0.25rem 0.65rem;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .carousel-btn {
+            position: absolute;
+            top: 45%;
+            transform: translateY(-50%);
+            background: rgba(15, 23, 42, 0.6);
+            color: white;
+            border: none;
+            font-size: 1.5rem;
+            padding: 0.5rem 0.9rem;
+            cursor: pointer;
+            border-radius: 50%;
+            transition: background 0.2s ease;
+            user-select: none;
+        }
+
+        .carousel-btn:hover {
+            background: var(--primary);
+        }
+
+        .prev-btn { left: 12px; }
+        .next-btn { right: 12px; }
+
         /* References */
         .reference-item {
             padding: 0.65rem 0;
@@ -320,18 +334,9 @@
             font-size: 0.95rem;
         }
 
-        .reference-item:last-child {
-            border-bottom: none;
-        }
-
         .reference-item a {
             color: var(--primary);
             text-decoration: none;
-            font-weight: 500;
-        }
-
-        .reference-item a:hover {
-            text-decoration: underline;
         }
 
         footer {
@@ -360,7 +365,7 @@
         <div class="nav-container">
             <a href="#intro">1. Introduction</a>
             <a href="#methods">2. Materials & Methods</a>
-            <a href="#photos">3. Experimental Setup</a>
+            <a href="#photos">3. Experimental Photos</a>
             <a href="#references">4. References</a>
             <a href="#ai-disclosure">5. AI Disclosure</a>
         </div>
@@ -431,7 +436,7 @@
             <h2>2. Materials & Methods</h2>
             
             <h3>2.1 Study Design</h3>
-            <p>We executed 5 trials per filter, resulting in 25 trials in total ($n = 5$ per group). Each trial was conducted under identical environmental conditions using equal volumes of creek water collected simultaneously from the same sampling location.</p>
+            <p>We executed 5 trials per filter, resulting in 25 trials in total (n = 5 per group). Each trial was conducted under identical environmental conditions using equal volumes of creek water collected simultaneously from the same sampling location.</p>
 
             <h3>2.2 Tested Filtration Technologies</h3>
             <table class="data-table">
@@ -475,23 +480,39 @@
             <p>Water samples were harvested from the designated creek location. Baseline values for turbidity and chemical contamination were recorded on unfiltered water. Each water sample was passed through its designated filter treatment. Post-treatment measurements were recorded in Google Sheets. Inferential statistical evaluation was conducted using a <strong>One-Way Analysis of Variance (ANOVA)</strong> via Statistics Kingdom.</p>
         </section>
 
-        <!-- Section 3: Photo Gallery Placeholder -->
+        <!-- Section 3: Photo Slideshow -->
         <section id="photos">
             <h2>3. Experimental Photos</h2>
-            <p>Photographic evidence of sample collection and testing setups:</p>
-            
-            <div class="image-gallery">
-                <!-- Replace 'creek-sample.jpg' with your actual uploaded image filename -->
-                <div class="image-box">
-                    <img src="creek-sample.jpg" alt="Creek Water Sampling" onerror="this.style.display='none'; this.nextElementSibling.innerHTML='📷 Add <b>creek-sample.jpg</b> to GitHub to display picture';">
+            <p>Use the left and right arrows to navigate through the project photos:</p>
+
+            <div class="carousel-container">
+                <!-- Slide 1 -->
+                <div class="carousel-slide active">
+                    <div class="slide-number">1 / 3</div>
+                    <img src="creek-sample.jpg" alt="Creek Water Sampling" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                    <div class="placeholder-box" style="display:none;">📷 Add <b>creek-sample.jpg</b> to GitHub</div>
                     <p class="caption">Figure 1: Collecting baseline water samples at the local creek site.</p>
                 </div>
-                
-                <!-- Replace 'filter-setup.jpg' with your actual uploaded image filename -->
-                <div class="image-box">
-                    <img src="filter-setup.jpg" alt="Filtration Setup" onerror="this.style.display='none'; this.nextElementSibling.innerHTML='📷 Add <b>filter-setup.jpg</b> to GitHub to display picture';">
+
+                <!-- Slide 2 -->
+                <div class="carousel-slide">
+                    <div class="slide-number">2 / 3</div>
+                    <img src="filter-setup.jpg" alt="Filtration Setup" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                    <div class="placeholder-box" style="display:none;">📷 Add <b>filter-setup.jpg</b> to GitHub</div>
                     <p class="caption">Figure 2: Multi-filter comparative experimental setup.</p>
                 </div>
+
+                <!-- Slide 3 -->
+                <div class="carousel-slide">
+                    <div class="slide-number">3 / 3</div>
+                    <img src="testing-process.jpg" alt="Testing Process" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                    <div class="placeholder-box" style="display:none;">📷 Add <b>testing-process.jpg</b> to GitHub</div>
+                    <p class="caption">Figure 3: Conducting turbidity and drinking water quality tests.</p>
+                </div>
+
+                <!-- Navigation Arrows -->
+                <button class="carousel-btn prev-btn" onclick="changeSlide(-1)">&#10094;</button>
+                <button class="carousel-btn next-btn" onclick="changeSlide(1)">&#10095;</button>
             </div>
         </section>
 
@@ -516,6 +537,24 @@
     <footer>
         <p>&copy; 2026 Student Science Research Team. Hosted on GitHub Pages.</p>
     </footer>
+
+    <!-- Carousel JavaScript -->
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.carousel-slide');
+
+        function showSlide(index) {
+            slides.forEach(slide => slide.classList.remove('active'));
+            if (index >= slides.length) currentSlide = 0;
+            if (index < 0) currentSlide = slides.length - 1;
+            slides[currentSlide].classList.add('active');
+        }
+
+        function changeSlide(direction) {
+            currentSlide += direction;
+            showSlide(currentSlide);
+        }
+    </script>
 
 </body>
 </html>
